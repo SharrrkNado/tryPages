@@ -8,21 +8,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-    strategy:
-      matrix:
-        node-version: [20.10]
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.10
 
+      - run: npm install
+      - run: npm run build
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Intsall and build
-        working-directory: .
-        run: npm install && npm build
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        width:
-          branch: gh-pages
-          folder: ./dist/try-git-pages/browser
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload entire repository
+          path: "./dist/try-git-page/browser"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
