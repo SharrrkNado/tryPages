@@ -1,0 +1,28 @@
+name: Deploy Angular Project on Github Pages
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.10]
+
+    steps:
+      - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Intsall and build
+      working-directory: ./try-git-page
+      run: npm install && npm build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.1
+      width: 
+        branch: gh-pages
+        folder: try-git-pages/dist/try-git-pages/browser
