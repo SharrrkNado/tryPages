@@ -23,6 +23,6 @@ jobs:
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
-        width:
+        with:
           branch: gh-pages
           folder: ./dist/try-git-pages/browser
