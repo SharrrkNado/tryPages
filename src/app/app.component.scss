@@ -1,0 +1,22 @@
+#arena {
+    height: 100vh;
+    background: darkslategrey;
+    position: relative;
+}
+
+#point {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+    background-color: firebrick;
+}
+
+#score {
+    position: absolute;
+    color: white;
+    top: 10px;
+    left: 50%;
+}
