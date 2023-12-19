@@ -13,7 +13,7 @@ jobs:
     steps:
       # - uses: actions/checkout@v4
       - name: hello world
-        run: echo '${{ toJSON(steps) | jq }}' 
+        run: echo '${{ toJSON(steps)}} | jq ' 
  
   bye:
     runs-on: ubuntu-latest
