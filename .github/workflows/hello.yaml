@@ -9,7 +9,7 @@ jobs:
     steps:
       # - uses: actions/checkout@v4
       - name: hello world
-        run: echo "Moiiiinsen"
+        run: echo '${{ toJSON(steps.deployment.outputs.page_url) }}' | jq
         shell: bash
   bye:
     runs-on: ubuntu-latest
