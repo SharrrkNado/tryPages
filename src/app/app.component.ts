@@ -21,7 +21,7 @@ export class AppComponent {
     this.score.update((score) => score + 1);
 
     const width = this.arena.nativeElement.clientWidth;
-    const height = this.arena.nativeElement.clientWidth;
+    const height = this.arena.nativeElement.clientHeight;
 
     const newPos = {
       x: Math.random() * (width - 2 * areaPadding) + +areaPadding + 'px',
