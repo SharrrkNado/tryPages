@@ -11,7 +11,7 @@ jobs:
       - name: hello world
         run: echo "Moiiiinsen"
         shell: bash
-  hello:
+  bye:
     runs-on: ubuntu-latest
     steps:
       - name: bye world
