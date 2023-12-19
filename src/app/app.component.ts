@@ -26,12 +26,12 @@ export class AppComponent {
     const newPos = {
       x: Math.random() * (width - 2 * areaPadding) + +areaPadding + 'px',
       y: Math.random() * (height - 2 * areaPadding) + +areaPadding + 'px',
-      s: this.point.nativeElement.clientWidth * 0.9 + 'px',
+      s: Number(this.point.nativeElement.clientHeight) * 0.9 + 'px',
     };
 
     this.point.nativeElement.style.left = newPos.x;
     this.point.nativeElement.style.top = newPos.y;
-    this.point.nativeElement.style.width = newPos.s + 'px';
-    this.point.nativeElement.style.height = newPos.s + 'px';
+    this.point.nativeElement.style.width = newPos.s;
+    this.point.nativeElement.style.height = newPos.s;
   }
 }
